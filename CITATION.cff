@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "Se este miniguia ajudar nos seus estudos, cite-o."
+title: "Miniguia de Estudos: RAG com NotebookLM"
+authors:
+  - family-names: "Wagner"
+    given-names: "José"
+license: MIT
+repository-code: "https://github.com/josewagnerbljr-sys/miniguia-estudos-notebooklm"

@@ -1,0 +1,64 @@
+# Biblioteca de prompts reutilizáveis. Use: python tools/prompt_lib.py render <id> --var tema="RAG"
+# Convenção: variáveis entre {chaves}; toda variável usada deve estar em `variaveis`.
+prompts:
+  - id: resumo-estruturado
+    objetivo: "Resumo hierárquico e citado de um tema."
+    variaveis: [tema, nivel]
+    template: |
+      Atue como tutor de nível {nivel}. Usando APENAS as fontes do caderno, resuma "{tema}" em:
+      1) Definição em 2 frases; 2) Como funciona (passo a passo numerado);
+      3) Quando usar / quando evitar; 4) Riscos e limitações.
+      Cite a fonte de cada afirmação. Se algo não estiver nas fontes, escreva "não consta nas fontes".
+  - id: glossario
+    objetivo: "Glossário técnico com fonte."
+    variaveis: [n, tema]
+    template: |
+      Gere um glossário com {n} termos essenciais de "{tema}". Formato: **Termo** — definição (máx. 25 palavras) — [fonte].
+      Ordene do mais básico ao mais avançado e não invente termos ausentes das fontes.
+  - id: comparativo
+    objetivo: "Tabela comparativa entre abordagens."
+    variaveis: [a, b]
+    template: |
+      Compare "{a}" e "{b}" em tabela: objetivo, vantagens, desvantagens, custo/latência, quando escolher cada um.
+      Indique a fonte de cada célula e sinalize divergências entre fontes.
+  - id: contradicoes
+    objetivo: "Detectar divergências entre fontes."
+    variaveis: [tema]
+    template: |
+      Existem contradições ou tensões entre as fontes sobre "{tema}"? Liste cada uma com as duas posições,
+      as fontes e uma hipótese do motivo (metodologia, época, escopo).
+  - id: lacunas
+    objetivo: "Descobrir o que as fontes NÃO cobrem."
+    variaveis: [tema]
+    template: |
+      Quais perguntas importantes sobre "{tema}" as fontes deixam sem resposta? Liste 5 lacunas e sugira o tipo de fonte
+      que as preencheria.
+  - id: feynman
+    objetivo: "Explicação simples + verificação."
+    variaveis: [tema]
+    template: |
+      Explique "{tema}" para uma pessoa leiga usando uma analogia do cotidiano. Depois liste 3 pontos em que a analogia
+      falha, citando as fontes.
+  - id: quiz-socratico
+    objetivo: "Autoavaliação progressiva."
+    variaveis: [n, tema]
+    template: |
+      Faça {n} perguntas sobre "{tema}", uma por vez, da mais fácil à mais difícil. Espere minha resposta, corrija com
+      citação da fonte e só então avance.
+  - id: flashcards
+    objetivo: "Cartões de revisão espaçada."
+    variaveis: [n, tema]
+    template: |
+      Crie {n} flashcards (Pergunta | Resposta curta | Fonte) sobre "{tema}", cobrindo conceitos, comparações e armadilhas.
+  - id: plano-revisao
+    objetivo: "Cronograma de revisão espaçada."
+    variaveis: [dias, tema]
+    template: |
+      Monte um plano de revisão de {dias} dias sobre "{tema}" com sessões de 25 min, alternando leitura ativa, recuperação
+      (perguntas sem consulta) e produção (explicar em voz alta).
+  - id: checagem-citacoes
+    objetivo: "Auditoria anti-alucinação."
+    variaveis: [afirmacao]
+    template: |
+      Verifique a afirmação: "{afirmacao}". Responda: SUPORTADA / PARCIAL / NÃO SUPORTADA pelas fontes,
+      com o trecho de apoio e o número da fonte. Não complete com conhecimento externo.

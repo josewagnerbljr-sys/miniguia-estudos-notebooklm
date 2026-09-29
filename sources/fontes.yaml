@@ -1,0 +1,38 @@
+# Curadoria de fontes abertas (3 a 5) enviadas ao NotebookLM.
+# Validada por tools/validate_repo.py (quantidade, https, campos obrigatórios).
+fontes:
+  - id: F1
+    titulo: "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks"
+    autores: "Lewis et al."
+    ano: 2020
+    tipo: artigo-fundacional
+    url: "https://arxiv.org/abs/2005.11401"
+    papel: "Origem do conceito de RAG: memória paramétrica + não paramétrica."
+  - id: F2
+    titulo: "Retrieval-Augmented Generation for Large Language Models: A Survey"
+    autores: "Gao et al."
+    ano: 2023
+    tipo: survey
+    url: "https://arxiv.org/abs/2312.10997"
+    papel: "Panorama: Naive RAG, Advanced RAG e Modular RAG."
+  - id: F3
+    titulo: "Lost in the Middle: How Language Models Use Long Contexts"
+    autores: "Liu et al."
+    ano: 2023
+    tipo: artigo-empirico
+    url: "https://arxiv.org/abs/2307.03172"
+    papel: "Limites do contexto longo; impacto na ordenação dos trechos."
+  - id: F4
+    titulo: "RAGAS: Automated Evaluation of Retrieval Augmented Generation"
+    autores: "Es et al."
+    ano: 2023
+    tipo: avaliacao
+    url: "https://arxiv.org/abs/2309.15217"
+    papel: "Métricas: fidelidade, relevância da resposta, precisão/recall de contexto."
+  - id: F5
+    titulo: "Self-RAG: Learning to Retrieve, Generate, and Critique through Self-Reflection"
+    autores: "Asai et al."
+    ano: 2023
+    tipo: tecnica-avancada
+    url: "https://arxiv.org/abs/2310.11511"
+    papel: "RAG adaptativo: o modelo decide quando recuperar e critica a si mesmo."
